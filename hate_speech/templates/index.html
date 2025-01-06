@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Speech Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hate Speech Detection</h1>
+        <form action="/predict" method="post">
+            <textarea name="tweet" rows="5" cols="40" placeholder="Enter your tweet here..." required></textarea><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+            <h2>Prediction:</h2>
+            <p>The tweet: "<strong>{{ tweet }}</strong>" is classified as: <strong>{{ prediction }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
